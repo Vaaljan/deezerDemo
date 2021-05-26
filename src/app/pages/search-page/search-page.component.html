@@ -1,0 +1,36 @@
+
+<div class="search-bar">
+  <mat-form-field class="full-width-field" [ngClass]="{'focused':searchTerm}">
+    <mat-label>Search Artist</mat-label>
+    <input matInput placeholder="ex. Eminem, Ed Sheeran" (input)="search()" [(ngModel)]="searchTerm">
+  </mat-form-field>
+</div>
+
+<div class="album-list">
+<ng-container *ngIf="($artists | async) as ARTISTS; else loadingArtists">
+  <div class="row">
+    <div class="col-sm-6 col-md-3" *ngFor="let artist of ARTISTS">
+      <div class="card clickable mb-3" (click)="openArtist(artist.id)">
+        <img [src]="artist.picture" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{artist.name}}</h5>
+          <h6>Fans: {{artist.nb_fan / 1000 | number:'1.0-0'}}k</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w-100 text-center" *ngIf="ARTISTS.length===0">
+    No artist not found;
+  </div>
+</ng-container>
+
+<ng-template #loadingArtists>
+  <div class="w-100 text-center" *ngIf="searched">
+  <app-loader></app-loader>
+  </div>
+</ng-template>
+
+
+</div>

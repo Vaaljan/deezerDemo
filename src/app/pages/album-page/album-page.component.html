@@ -1,0 +1,52 @@
+
+<ng-container *ngIf="selectedAlbum">
+  <div class="card mt-3 mb-3">
+    <div class="row selected-album">
+      <div class="col-12 col-md-4">
+        <div class="album-cover">
+          <div class="w-100 text-center">
+            <img [src]="selectedAlbum.cover">
+          </div>
+          <div>Released: {{selectedAlbum.release_date}}</div>
+          <div>Fans: {{selectedAlbum.fans / 1000 | number:'1:0-0'}}k</div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h4>Track List</h4>
+        <div class="table-container">
+          <table width="100%">
+            <tr *ngFor="let track of selectedAlbum.tracks.data;let i = index">
+              <td width="10%">{{i+1}}</td>
+              <td width="70%">
+                {{track.title_short}}
+              </td>
+              <td width="20%">{{track.duration}}</td>
+            </tr>
+          </table>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+</ng-container>
+
+
+<ng-container *ngIf="artist else loadingAlbums">
+  <div class="row">
+    <div class="col-sm-6 col-md-3" *ngFor="let album of artist.albums">
+      <div class="card clickable mb-3" [ngClass]="{'active':selectedAlbum && selectedAlbum.id === album.id}" (click)="selectAlbum(album.id)">
+        <img [src]="album.cover" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{album.title}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loadingAlbums>
+  <div class="w-100 text-center">
+  <app-loader></app-loader>
+  </div>
+</ng-template>

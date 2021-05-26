@@ -1,0 +1,11 @@
+.search-bar{
+  width: 100%;
+}
+
+.full-width-field {
+  width: 100%;
+  font-size: 3rem;
+  &.focused{
+    font-size: 1.5rem;
+  }
+}

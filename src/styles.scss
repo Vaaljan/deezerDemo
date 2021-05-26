@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap-grid';
+
+html, body { height: 100%; }
+
+$primary:#FE5E41;
+$secondary:#2c2c2c;
+$tertiary:#547AA5;
+$lightGrey:#ccc;
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:$secondary; color:#fff}
+
+.container{
+  width: 80%;
+  margin: 0 10%;
+}
+.w-100{
+  width: 100%;
+}
+.text-center{
+  text-align: center;
+}
+.clickable{
+  cursor:pointer;
+}
+
+.card{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #161616;
+  text-align: center;
+}
