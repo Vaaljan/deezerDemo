@@ -1,7 +1,10 @@
 .active{
   border: 4px solid #c2185b;
 }
-
+.select-loader{
+  min-height: 200px;
+  padding-top: 10%;
+}
 .selected-album{
   h4{
     border-bottom: 3px solid #c2185b;
@@ -12,7 +15,7 @@
   }
   .album-cover{
     padding-top:3rem;
-
+    padding-bottom:3rem;
     text-align: center;
     img{max-width:80%;padding-bottom:1rem;}
   }

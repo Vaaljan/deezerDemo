@@ -1,5 +1,5 @@
 
-<ng-container *ngIf="selectedAlbum">
+<ng-container *ngIf="selectedAlbum else loadingSelected">
   <div class="card mt-3 mb-3">
     <div class="row selected-album">
       <div class="col-12 col-md-4">
@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col-sm-6 col-md-3" *ngFor="let album of artist.albums">
       <div class="card clickable mb-3" [ngClass]="{'active':selectedAlbum && selectedAlbum.id === album.id}" (click)="selectAlbum(album.id)">
-        <img [src]="album.cover" class="card-img-top">
+        <img [src]="album.cover_big" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">{{album.title}}</h5>
         </div>
@@ -48,5 +48,13 @@
 <ng-template #loadingAlbums>
   <div class="w-100 text-center">
   <app-loader></app-loader>
+  </div>
+</ng-template>
+
+<ng-template #loadingSelected>
+  <div class="card mt-3 mb-3 select-loader">
+    <div class="w-100 text-center">
+      <app-loader></app-loader>
+    </div>
   </div>
 </ng-template>

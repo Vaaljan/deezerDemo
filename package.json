@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "npm install && ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-backend":"cd backend && npm run start"
+    "start-backend": "cd backend && npm install && npm run start"
   },
   "private": true,
   "dependencies": {

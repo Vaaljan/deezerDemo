@@ -7,15 +7,12 @@ import { SharedModule } from '../../components/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-
 @NgModule({
   declarations: [AlbumPageComponent],
   imports: [
     CommonModule,
     AlbumPageRoutingModule,
-    SharedModule,
-    MatCardModule,
-    MatGridListModule
-  ]
+    SharedModule
+  ],
 })
-export class AlbumPageModule { }
+export class AlbumPageModule {}
